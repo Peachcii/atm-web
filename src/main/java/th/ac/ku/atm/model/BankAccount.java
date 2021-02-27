@@ -1,7 +1,6 @@
 package th.ac.ku.atm.model;
 
 public class BankAccount {
-
     private int id;
     private int customerId;
     private String type;
@@ -14,7 +13,6 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    //ID
     public int getId() {
         return id;
     }
@@ -23,16 +21,14 @@ public class BankAccount {
         this.id = id;
     }
 
-    //Customer ID
-    public int getCusId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCusId(int customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 
-    //Type
     public String getType() {
         return type;
     }
@@ -41,15 +37,11 @@ public class BankAccount {
         this.type = type;
     }
 
-    //Balance
     public double getBalance() {
         return balance;
     }
 
     public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    public void add(BankAccount bankaccount) {
     }
 }
