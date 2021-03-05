@@ -12,23 +12,26 @@ import th.ac.ku.atm.service.CustomerService;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+    //private List<Customer> customer = new ArrayList<>();
+    private CustomerService CustomerService;
 
-    private CustomerService customerService;
-
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
+    public CustomerController(th.ac.ku.atm.service.CustomerService customerService) {
+        CustomerService = customerService;
     }
 
     @GetMapping
-    public String getCustomerPage(Model model) {
-        model.addAttribute("allCustomers", customerService.getCustomers());
-        return "customer";
-    }
+    public String getCustomerPage(Model model){
 
+        model.addAttribute("allCustomers",CustomerService.getCustomers());
+
+        return "customer";  // customer in resource/templates
+    }
     @PostMapping
     public String registerCustomer(@ModelAttribute Customer customer, Model model) {
-        customerService.createCustomer(customer);
-        model.addAttribute("allCustomers", customerService.getCustomers());
+
+        CustomerService.createCustomer(customer);
+        model.addAttribute("allCustomers", CustomerService.getCustomers());
         return "redirect:customer";
     }
+
 }
